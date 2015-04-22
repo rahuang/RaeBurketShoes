@@ -27,8 +27,8 @@ def details(request):
 def login(request):
     return render(request, 'login.html')
 
-def product(request):
-    return render(request, 'product.html')
+def products(request):
+    return render(request, 'products.html')
 
 def register(request):
     return render(request, 'register.html')
