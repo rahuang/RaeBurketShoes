@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', hello.views.main, name='main'),
+    url(r'^index', hello.views.main, name='main'),
     url(r'^about', hello.views.about, name='main'),
     url(r'^blog', hello.views.blog, name='main'),
     url(r'^contact', hello.views.contact, name='main'),
