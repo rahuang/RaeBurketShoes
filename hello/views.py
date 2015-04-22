@@ -33,6 +33,9 @@ def products(request):
 def register(request):
     return render(request, 'register.html')
 
+def test(request):
+    return render(request, 'test.html')
+
 '''
 def db(request):
 
