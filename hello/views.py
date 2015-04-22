@@ -34,7 +34,11 @@ def register(request):
     return render(request, 'register.html')
 
 def test(request):
-    return render(request, 'test.html')
+    test = Test(name="hello")
+    test.save()
+
+    test = Test.objects.all()
+    return render(request, 'db.html', {'greetings': test})
 
 
 def db(request):
