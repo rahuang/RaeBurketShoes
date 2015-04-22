@@ -9,6 +9,9 @@ import requests
 def index(request):
     return HttpResponse('Hello from Python Test1!')
 
+def main(request):
+    return render(request, 'index.html')
+
 
 def db(request):
 
