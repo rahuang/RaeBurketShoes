@@ -12,6 +12,27 @@ def index(request):
 def main(request):
     return render(request, 'index.html')
 
+def about(request):
+    return render(request, 'about.html')
+
+def blog(request):
+    return render(request, 'blog.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def details(request):
+    return render(request, 'details.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def product(request):
+    return render(request, 'product.html')
+
+def register(request):
+    return render(request, 'register.html')
+
 '''
 def db(request):
 
