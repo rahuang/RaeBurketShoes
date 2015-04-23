@@ -47,6 +47,8 @@ body {
 .logo{
 	float:left;
 	margin: 14px 0;
+	height: 50px;
+	width: 200px;
 }
 /********** Login & registration *************/
 .log_reg{
