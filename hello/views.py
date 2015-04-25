@@ -35,6 +35,13 @@ def register(request):
     return render(request, 'register.html')
 
 def cart(request):
+    cart = ShoppingCart(pic="pic1.jpg", name="Even & Odd", price="$145.99")
+    cart.save()
+    cart = ShoppingCart(pic="pic2.jpg", name="Buffalo Decollete", price="$185.99")
+    cart.save()
+    cart = ShoppingCart(pic="pic3.jpg", name="Even & Odd", price="$145.99")
+    cart.save()
+
     return render(request, 'cart.html', {"range": range(3)})
 
 def test(request):
