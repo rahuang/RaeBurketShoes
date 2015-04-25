@@ -3,6 +3,7 @@ from django.http import HttpResponse
 
 from .models import Greeting
 from .models import Test
+from .models import ShoppingCart
 
 import requests
 
