@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^register', hello.views.register, name='main'),
     url(r'^test', hello.views.test, name='main'),
     url(r'^main', hello.views.index, name='index'),
+    url(r'^cart', hello.views.cart, name='cart'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
 

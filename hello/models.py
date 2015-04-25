@@ -7,3 +7,9 @@ class Greeting(models.Model):
 
 class Test(models.Model):
     name = models.CharField(max_length=30)
+
+
+class ShoppingCart(models.Model):
+    pic = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
+    price = models.CharField(max_length=30)
