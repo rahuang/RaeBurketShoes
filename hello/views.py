@@ -37,9 +37,8 @@ def register(request):
 
 def cart(request):
     if request.method == 'GET':
-        qd = request.GET
-        if(qd["pic"] != ""):
-            cart = ShoppingCart(pic=qd["pic"], name=qd["name"], price=qd["price"])
+        if(request.GET['pic'] != ""):
+            cart = ShoppingCart(pic=request.GET['pic'], name=request.GET['name'], price=request.GET['price'])
             cart.save()
 
     carts = ShoppingCart.objects.all()
