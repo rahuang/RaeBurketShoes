@@ -39,7 +39,7 @@ def cart(request):
     if request.method == 'GET':
         qd = request.GET
         if(qd["pic"] != ""):
-            cart = ShoppingCart(pic=qd["pic"], name=qd["name"], qd["price"])
+            cart = ShoppingCart(pic=qd["pic"], name=qd["name"], price=qd["price"])
             cart.save()
 
     carts = ShoppingCart.objects.all()
