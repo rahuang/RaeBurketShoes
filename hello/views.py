@@ -46,6 +46,8 @@ def cart(request):
         if(request.POST['pic'] != ""):
             cart = ShoppingCart(pic=request.POST['pic'], name=request.POST['name'], price=request.POST['price'])
             cart.save()
+        elif(request.POST['id'] != ""):
+            ShoppingCart.objects.filter(id=request.POST['id']).delete()
 
     carts = ShoppingCart.objects.all()
     l = []

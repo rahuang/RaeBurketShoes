@@ -124,6 +124,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h3>{{ cart.name }}</h3>
 				<span class="price">{{ cart.price }}</span>
 			</a>
+			<div class="contact-form">
+				<form action="cart.html" method="post">
+					<input type="number" name="id" value={{ cart.id }} hidden/>
+					{% csrf_token %}
+			   		<span><input style="float:right; margin:10px;" type="submit" value="remove from cart"></span>
+			  </form>
+		  	</div>
 		</div>
 		{% endfor %}
 		<div class="clear"></div>
