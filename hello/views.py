@@ -42,7 +42,17 @@ def cart(request):
             cart.save()
 
     carts = ShoppingCart.objects.all()
-    return render(request, 'cart.html', {"carts": carts})
+    l = []
+    temp = []
+    for i in xrange(carts.length):
+        temp.append(carts[i])
+        if(i%3 == 2):
+            l.append(temp)
+            temp = []
+    if(temp != []):
+        l.append(temp)
+        
+    return render(request, 'cart.html', {"carts": l})
 
 def test(request):
     test = Test(name="hello")
