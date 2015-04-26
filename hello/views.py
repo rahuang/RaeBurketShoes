@@ -12,25 +12,31 @@ def index(request):
     return HttpResponse('Hello from Python Test1!')
 
 def main(request):
-    return render(request, 'index.html')
+    carts = ShoppingCart.objects.all()
+    return render(request, 'index.html', {"numItems": len(carts)})
 
 def about(request):
-    return render(request, 'about.html')
+    carts = ShoppingCart.objects.all()
+    return render(request, 'about.html', {"numItems": len(carts)})
 
 def blog(request):
-    return render(request, 'blog.html')
+    carts = ShoppingCart.objects.all()
+    return render(request, 'blog.html', {"numItems": len(carts)})
 
 def contact(request):
-    return render(request, 'contact.html')
+    carts = ShoppingCart.objects.all()
+    return render(request, 'contact.html', {"numItems": len(carts)})
 
 def details(request):
-    return render(request, 'details.html')
+    carts = ShoppingCart.objects.all()
+    return render(request, 'details.html', {"numItems": len(carts)})
 
 def login(request):
     return render(request, 'login.html')
 
 def products(request):
-    return render(request, 'products.html')
+    carts = ShoppingCart.objects.all()
+    return render(request, 'products.html', {"numItems": len(carts)})
 
 def register(request):
     return render(request, 'register.html')
@@ -51,8 +57,10 @@ def cart(request):
             temp = []
     if(temp != []):
         l.append(temp)
+
+    length = len(carts)
         
-    return render(request, 'cart.html', {"carts": l})
+    return render(request, 'cart.html', {"carts": l, "numItems": length})
 
 def test(request):
     test = Test(name="hello")
