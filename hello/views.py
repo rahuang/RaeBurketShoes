@@ -44,7 +44,7 @@ def cart(request):
     carts = ShoppingCart.objects.all()
     l = []
     temp = []
-    for i in xrange(carts.length):
+    for i in xrange(len(carts)):
         temp.append(carts[i])
         if(i%3 == 2):
             l.append(temp)
