@@ -43,10 +43,10 @@ def register(request):
 
 def cart(request):
     if request.method == 'POST':
-        if(request.POST['pic'] != ""):
+        if 'pic' in request.POST:
             cart = ShoppingCart(pic=request.POST['pic'], name=request.POST['name'], price=request.POST['price'])
             cart.save()
-        elif(request.POST['id'] != ""):
+        elif 'id' in request.POST:
             ShoppingCart.objects.filter(id=request.POST['id']).delete()
 
     carts = ShoppingCart.objects.all()
