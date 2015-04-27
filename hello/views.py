@@ -41,6 +41,9 @@ def products(request):
 def register(request):
     return render(request, 'register.html')
 
+def landing(request):
+    return render(request, 'landing.html')
+
 def cart(request):
     if request.method == 'POST':
         if 'pic' in request.POST:
