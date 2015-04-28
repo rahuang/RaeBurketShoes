@@ -34,79 +34,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script>
-$( document ).ready(function() {
-	var width = 960,
-	    height = 960,
-	    speed = -1e-2,
-	    start = Date.now();
-
-	var sphere = {type: "Sphere"};
-
-	var projection = d3.geo.orthographic()
-	    .scale(width / 2.1)
-	    .translate([width / 2, height / 2])
-	    .precision(.5);
-
-	var graticule = d3.geo.graticule();
-
-	var canvas = d3.select("body").append("canvas")
-	    .attr("width", width)
-	    .attr("height", height);
-
-	var context = canvas.node().getContext("2d");
-
-	var path = d3.geo.path()
-	    .projection(projection)
-	    .context(context);
-
-	d3.json("{{STATIC_URL}}world-110m.json", function(error, topo) {
-	  var land = topojson.feature(topo, topo.objects.land),
-	      grid = graticule();
-
-	  d3.timer(function() {
-	    context.clearRect(0, 0, width, height);
-
-	    projection.rotate([speed * (Date.now() - start), -15]).clipAngle(90);
-
-	    context.beginPath();
-	    path(sphere);
-	    context.lineWidth = 3;
-	    context.strokeStyle = "#000";
-	    context.stroke();
-	    context.fillStyle = "#fff";
-	    context.fill();
-
-	    projection.clipAngle(180);
-
-	    context.beginPath();
-	    path(land);
-	    context.fillStyle = "#dadac4";
-	    context.fill();
-
-	    context.beginPath();
-	    path(grid);
-	    context.lineWidth = .5;
-	    context.strokeStyle = "rgba(119,119,119,.5)";
-	    context.stroke();
-
-	    projection.clipAngle(90);
-
-	    context.beginPath();
-	    path(land);
-	    context.fillStyle = "#737368";
-	    context.fill();
-	    context.lineWidth = .5;
-	    context.strokeStyle = "#000";
-	    context.stroke();
-	  });
-	});
-
-	d3.select(self.frameElement).style("height", height + "px");
-});
-</script>
 </head>
 <body>
 <!-- start header -->
@@ -213,8 +140,8 @@ $( document ).ready(function() {
 		<div class="clear"></div>
 	</div>
 
-	<div class="grids_of_1">
-		<canvas></canvas>
+	<div class="grids_of_1" style="text-align: center;">
+		<img src="../../static/images/rotating_globe.gif">
 	</div>
 
 	<div class="top_main">
@@ -223,20 +150,19 @@ $( document ).ready(function() {
 	</div>
 	<div class="grids_of_3">
 		<div class="grid1_of_3" style="background: #dfdbd4; padding-bottom: 20px">
-			<img height=200px width=250px style="border-radius: 250px; !important" src="../../static/images/global.jpg" alt="">
-			<h3 style="font-weight: bold; color: #57C5A0; font-size: 26px; padding-bottom: 0px;">Global</h3>
-			<span style="text-align: center;">Rae Burket Shoes has always been a proud company that serves the global community and reaches out to others.</span>
+			<img height=200px width=250px style="border-radius: 250px; !important" src="../../static/images/receivingShoe1.jpg" alt="">
+			<h3 style="font-weight: bold; color: #57C5A0; font-size: 26px; padding-bottom: 0px;">John</h3>
+			<span style="text-align: center;">Rae Burket Shoes is awesome for giving me this new pair of shoes!</span>
 		</div>
 		<div class="grid1_of_3" style="background: #dfdbd4; padding-bottom: 20px">
-			<img height=200px width=250px style="border-radius: 250px; !important" src="../../static/images/help.jpg" alt="">
-			<h3 style="font-weight: bold; color: #57C5A0; font-size: 26px; padding-bottom: 0px;">Helping Hand</h3>
-			<span style="text-align: center;">Rae Burket Shoes has always tried to lend a helping hand and to support those in need around the world.</span>
+			<img height=200px width=250px style="border-radius: 250px; !important" src="../../static/images/receivingShoe1.jpg" alt="">
+			<h3 style="font-weight: bold; color: #57C5A0; font-size: 26px; padding-bottom: 0px;">Jenny</h3>
+			<span style="text-align: center;">I have not owned a pair of shoes for the past year, until Rae Burket Shoes gave me a pair!</span>
 		</div>
 		<div class="grid1_of_3" style="background: #dfdbd4; padding-bottom: 20px">
-			<img height=200px width=250px style="border-radius: 250px; !important" src="../../static/images/givingshoes.jpeg" alt="">
-			<h3 style="font-weight: bold; color: #57C5A0; font-size: 26px; padding-bottom: 0px;">Giving</h3>
-			<span style="text-align: center;">Rae Burket Shoes has always done social good by providing a pair of shoes to a child in need for each pair purchased.
-</span>
+			<img height=200px width=250px style="border-radius: 250px; !important" src="../../static/images/receivingShoe1.jpeg" alt="">
+			<h3 style="font-weight: bold; color: #57C5A0; font-size: 26px; padding-bottom: 0px;">Tom</h3>
+			<span style="text-align: center;">I love Rae Burket Shoes for all the help they have given me and my family.</span>
 		</div>
 		<div class="clear"></div>
 	</div>
