@@ -45,9 +45,15 @@ def landing(request):
     return render(request, 'landing.html')
 
 def getToGive(request):
-    return render(request, 'gettogive.html')
+    return render(request, 'gettogive.html', {"numItems": len(carts)})
 
 def cart(request):
+    cart = ShoppingCart(pic="pic1.jpg", name="Even & Odd", price="$145.99")
+    cart.save()
+    cart = ShoppingCart(pic="pic2.jpg", name="Buffalo Decollete", price="$185.99")
+    cart.save()
+    cart = ShoppingCart(pic="pic3.jpg", name="Even & Odd", price="$145.99")
+    cart.save()
     if request.method == 'POST':
         if 'pic' in request.POST:
             cart = ShoppingCart(pic=request.POST['pic'], name=request.POST['name'], price=request.POST['price'])
