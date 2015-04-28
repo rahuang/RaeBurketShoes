@@ -44,6 +44,9 @@ def register(request):
 def landing(request):
     return render(request, 'landing.html')
 
+def getToGive(request):
+    return render(request, 'gettogive.html')
+
 def cart(request):
     if request.method == 'POST':
         if 'pic' in request.POST:
