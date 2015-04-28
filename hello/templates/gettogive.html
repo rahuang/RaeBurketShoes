@@ -66,8 +66,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		            .on("mousedown", mousedown);
 
 		queue()
-		    .defer(d3.json, "../../static/world-110m.json")
-		    .defer(d3.json, "../../static/places.json")
+		    .defer(d3.json, "{{STATIC_URL}}world-110m.json")
+		    .defer(d3.json, "{{STATIC_URL}}places.json")
 		    .await(ready);
 
 		function ready(error, world, places) {
