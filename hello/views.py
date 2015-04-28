@@ -12,6 +12,10 @@ def index(request):
     return HttpResponse('Hello from Python Test1!')
 
 def main(request):
+    if request.method == 'GET':
+        if 'language' in request.GET:
+            carts = ShoppingCart.objects.all()
+            return render(request, 'index-french.html', {"numItems": len(carts)})
     carts = ShoppingCart.objects.all()
     return render(request, 'index.html', {"numItems": len(carts)})
 
@@ -45,6 +49,7 @@ def landing(request):
     return render(request, 'landing.html')
 
 def getToGive(request):
+    carts = ShoppingCart.objects.all()
     return render(request, 'gettogive.html', {"numItems": len(carts)})
 
 def cart(request):
